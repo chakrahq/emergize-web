@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>emergize — Mental Health &amp; Wellness · Business Productivity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6B5CE7;
+      --brand-light: #EAE8FD;
+      --brand-mid: #A89DF0;
+      --brand-dark: #3C3489;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --surface: #ffffff;
+      --subtle: #f7f6fc;
+      --border: rgba(0,0,0,0.1);
+      --border-mid: rgba(0,0,0,0.18);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--surface); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--ink); text-decoration: none; }
+    .nav-logo-mark { width: 30px; height: 30px; }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { font-size: 13px; font-weight: 500; background: var(--brand); color: #fff !important; border: none; border-radius: 6px; padding: 9px 20px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.86; }
+
+    .btn-primary { background: var(--brand); color: #fff; border: none; border-radius: 8px; padding: 14px 30px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity 0.2s; font-family: 'DM Sans', sans-serif; }
+    .btn-primary:hover { opacity: 0.86; }
+    .btn-ghost { background: transparent; color: var(--ink); border: 0.5px solid var(--border-mid); border-radius: 8px; padding: 14px 30px; font-size: 15px; font-weight: 400; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
+    .btn-ghost:hover { background: var(--subtle); }
+
+    .hero { padding: 7rem 2rem 6rem; max-width: 860px; margin: 0 auto; text-align: center; }
+    .hero-domains { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 2.2rem; }
+    .hero-domain { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brand-dark); background: var(--brand-light); border-radius: 4px; padding: 5px 12px; }
+    .hero-domain-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); display: inline-block; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 6vw, 4.2rem); line-height: 1.08; color: var(--ink); margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--brand); }
+    .hero p { font-size: 1.1rem; line-height: 1.8; color: var(--muted); max-width: 560px; margin: 0 auto 2.75rem; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .hero-meta-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+    .hero-meta-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--border-mid); }
+
+    .strip { border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--subtle); padding: 1.1rem 2rem; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .strip-item { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 7px; }
+    .check { width: 17px; height: 17px; border-radius: 50%; background: var(--brand-light); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .check::after { content: ''; display: block; width: 5px; height: 3px; border-left: 1.5px solid var(--brand); border-bottom: 1.5px solid var(--brand); transform: rotate(-45deg) translateY(-1px); }
+
+    .divider { border: none; border-top: 0.5px solid var(--border); }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.75rem; }
+
+    .what-section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+    .what-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    @media (max-width: 620px) { .what-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    .what-text h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.18; margin-bottom: 1rem; }
+    .what-text h2 em { font-style: italic; color: var(--brand); }
+    .what-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .what-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+    .what-stats { display: grid; grid-template-columns: 1fr 1fr; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .what-stat { padding: 1.5rem 1.25rem; background: var(--surface); border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+    .what-stat:nth-child(2) { border-right: none; }
+    .what-stat:nth-child(3) { border-bottom: none; }
+    .what-stat:nth-child(4) { border-right: none; border-bottom: none; }
+    .what-stat-val { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand); line-height: 1; margin-bottom: 6px; }
+    .what-stat-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+    .section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.8vw, 2.8rem); line-height: 1.15; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 560px; margin-bottom: 2.75rem; }
+
+    .moments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .moment-card { background: var(--surface); padding: 1.6rem 1.4rem; border-right: 0.5px solid var(--border); transition: background 0.2s; }
+    .moment-card:last-child { border-right: none; }
+    .moment-card:hover { background: var(--subtle); }
+    .moment-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .moment-icon svg { width: 17px; height: 17px; }
+    .moment-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 7px; }
+    .moment-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    .how-section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+    .how-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.8vw, 2.8rem); line-height: 1.15; margin-bottom: 0.75rem; }
+    .how-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin-top: 0.75rem; }
+    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.75rem; }
+    @media (max-width: 620px) { .how-steps { grid-template-columns: 1fr; } }
+    .how-step-num { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+    .how-step-num::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .how-step h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .how-step p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    .stages-section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+    .stages-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.8vw, 2.8rem); line-height: 1.15; margin-bottom: 0.75rem; }
+    .stages-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
+    .stages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 2.75rem; }
+    @media (max-width: 620px) { .stages-grid { grid-template-columns: 1fr 1fr; } }
+    .stage-card { border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; background: var(--surface); transition: border-color 0.2s; }
+    .stage-card:hover { border-color: var(--brand-mid); }
+    .stage-num { font-size: 10px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .stage-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+    .stage-card p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+    .stage-pill { display: inline-block; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 9px; border-radius: 4px; margin-top: 12px; }
+    .stage-pill.active { background: var(--brand-light); color: var(--brand-dark); }
+    .stage-pill.soon { background: var(--subtle); color: var(--muted); border: 0.5px solid var(--border); }
+
+    .values-section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+    .values-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.8vw, 2.8rem); line-height: 1.15; margin-bottom: 2.75rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    @media (max-width: 620px) { .values-grid { grid-template-columns: 1fr; } }
+    .value-line { width: 26px; height: 2.5px; background: var(--brand); margin-bottom: 1rem; border-radius: 2px; }
+    .value-item h3 { font-size: 14px; font-weight: 500; margin-bottom: 7px; }
+    .value-item p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    .cta-footer { border-top: 0.5px solid var(--border); padding: 5rem 2rem; text-align: center; }
+    .cta-footer h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .cta-footer p { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 500px; margin: 0 auto 2.25rem; }
+
+    footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; background: var(--subtle); }
+    footer p { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 620px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 4rem 1.25rem 3.5rem; }
+      .strip { gap: 1rem; padding: 0.9rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#">
+      <svg class="nav-logo-mark" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 352L96 288L160 224L224 288L160 352Z" fill="#6B5CE7"/>
+        <path d="M224 288L288 224L256 192C220 156 176 148 140 160L224 288Z" fill="#6B5CE7" opacity="0.45"/>
+        <path d="M290 170C345 140 415 155 450 210C485 265 475 340 420 375" stroke="#6B5CE7" stroke-width="44" stroke-linecap="round" fill="none"/>
+        <path d="M340 110L295 155L350 175L340 110Z" fill="#6B5CE7"/>
+      </svg>
+      emergize
+    </a>
+    <div class="nav-links">
+      <a href="#what-we-do">what we do</a>
+      <a href="#approach">approach</a>
+      <a href="#about">about</a>
+      <a class="nav-cta" href="mailto:info@emergize.ch">get early access</a>
+    </div>
+  </nav>
+
+  <!-- HERO: emergize as a company -->
+  <section class="hero">
+    <div class="hero-domains">
+      <span class="hero-domain"><span class="hero-domain-dot"></span>Mental Health &amp; Wellness</span>
+      <span class="hero-domain"><span class="hero-domain-dot"></span>Business Productivity</span>
+    </div>
+    <h1>People work better<br>when they <em>feel</em> better.</h1>
+    <p>emergize is a Swiss startup building tools that bring mental resilience into everyday work — quietly, practically, and without making a fuss about it.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('what-we-do').scrollIntoView({behavior:'smooth'})">what we do</button>
+      <button class="btn-ghost" onclick="document.getElementById('pilot').scrollIntoView({behavior:'smooth'})">work with us</button>
+    </div>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="7" r="2.5" stroke="#6b6b6b" stroke-width="1.2"/>
+          <path d="M8 2C5.24 2 3 4.24 3 7c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5Z" stroke="#6b6b6b" stroke-width="1.2"/>
+        </svg>
+        Basel, Switzerland
+      </span>
+      <span class="hero-meta-sep"></span>
+      <span class="hero-meta-item">DACH region · expanding globally</span>
+      <span class="hero-meta-sep"></span>
+      <span class="hero-meta-item">B2B · enterprise-ready</span>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-item"><span class="check"></span> Start in under 30 seconds</div>
+    <div class="strip-item"><span class="check"></span> No therapy framing</div>
+    <div class="strip-item"><span class="check"></span> Privacy-by-design</div>
+    <div class="strip-item"><span class="check"></span> Built for European workplaces</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- WHAT WE DO (moved from old hero) -->
+  <section class="what-section" id="what-we-do">
+    <div class="what-text">
+      <div class="section-label">what we do</div>
+      <h2>Reset in <em>two minutes.</em><br>Return stronger.</h2>
+      <p>Most days don't fall apart dramatically. They just slowly tip. emergize gives people a way back — a short reset that actually works, without the overhead of another wellness program nobody asked for.</p>
+      <p>We build tools that sit inside real moments of the workday. Before a meeting. After an overload. On the commute home. Small interventions that compound into meaningful change.</p>
+      <div class="what-actions">
+        <button class="btn-primary" onclick="document.getElementById('product').scrollIntoView({behavior:'smooth'})">see how it works</button>
+        <button class="btn-ghost" onclick="document.getElementById('approach').scrollIntoView({behavior:'smooth'})">our approach</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- MOMENTS -->
+  <section class="section" id="product">
+    <div class="section-label">daily moments</div>
+    <h2>For the moments that actually tip your day.</h2>
+    <p class="section-sub">Not abstract stress. Specific moments — the ones you know by name. Each session takes under three minutes and leaves you somewhere better than where you started.</p>
+    <div class="moments-grid">
+      <div class="moment-card">
+        <div class="moment-icon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M8 1v6l3 3" stroke="#6B5CE7" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="8" cy="8" r="6.5" stroke="#6B5CE7" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Pre-meeting reset</h3>
+        <p>Walk in calm. Not wired, not distracted — actually ready for the conversation.</p>
+      </div>
+      <div class="moment-card">
+        <div class="moment-icon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M2 8h4l2-4 2 8 2-4h2" stroke="#6B5CE7" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Overload breakout</h3>
+        <p>Three calls back to back and your head's full. Two minutes and you can think again.</p>
+      </div>
+      <div class="moment-card">
+        <div class="moment-icon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="6" width="12" height="8" rx="1.5" stroke="#6B5CE7" stroke-width="1.2"/>
+            <path d="M5 6V4.5a3 3 0 0 1 6 0V6" stroke="#6B5CE7" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Back-to-focus sprint</h3>
+        <p>You keep getting pulled away. This gets you back — without having to white-knuckle it.</p>
+      </div>
+      <div class="moment-card">
+        <div class="moment-icon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M8 2C5.8 2 4 3.8 4 6c0 2.5 4 8 4 8s4-5.5 4-8c0-2.2-1.8-4-4-4Z" stroke="#6B5CE7" stroke-width="1.2"/>
+            <circle cx="8" cy="6" r="1.5" fill="#6B5CE7"/>
+          </svg>
+        </div>
+        <h3>Commute reset</h3>
+        <p>A buffer between work and the rest of your life — so you don't bring one into the other.</p>
+      </div>
+      <div class="moment-card" style="border-right:none;">
+        <div class="moment-icon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M8 13V8M5 10l3-3 3 3" stroke="#6B5CE7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 13h10" stroke="#6B5CE7" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Bedtime wind-down</h3>
+        <p>Your body's tired but your mind won't stop. This helps you actually hand the day over.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="approach">
+    <div class="section-label">how it works</div>
+    <h2>You won't need a tutorial.</h2>
+    <p class="how-sub">emergize is built around one idea: the faster you feel something, the more likely you are to come back. So we made it as simple as it could possibly be.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <h3>Pick what fits right now</h3>
+        <p>Big meeting coming up? Just survived an overload? Need to switch off? You pick the moment — we take it from there.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <h3>Something shifts</h3>
+        <p>A short guided session — audio, breath, a moment of quiet. Under three minutes. You come out the other side feeling different.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <h3>Keep what works</h3>
+        <p>Found something that helps? Save it with one tap. Next time that moment comes around, it's right there waiting.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- STAGES -->
+  <section class="stages-section">
+    <div class="section-label">staged experience</div>
+    <h2>It meets you where you are.</h2>
+    <p class="stages-sub">Start with one moment. Go deeper when you're ready. Nothing is locked, nothing is forced.</p>
+    <div class="stages-grid">
+      <div class="stage-card">
+        <div class="stage-num">stage 01</div>
+        <h3>Entry</h3>
+        <p>Open the app, pick a moment, feel something change. That's it. You're in under 30 seconds.</p>
+        <span class="stage-pill active">Jun 2026</span>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">stage 02</div>
+        <h3>Moments</h3>
+        <p>Six real situations, each with its own short session. Save the ones that click as rituals you'll actually use.</p>
+        <span class="stage-pill active">Jun 2026</span>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">stage 03</div>
+        <h3>Assessment</h3>
+        <p>A light, optional check-in that helps surface what matters most to you — without the clinical atmosphere.</p>
+        <span class="stage-pill soon">coming soon</span>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">stage 04</div>
+        <h3>Deep work</h3>
+        <p>For people who want to go further. Longer sessions, more depth — earned, not imposed.</p>
+        <span class="stage-pill soon">coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VALUES -->
+  <section class="values-section" id="about">
+    <div class="section-label">principles</div>
+    <h2>Not wellness as usual.</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-line"></div>
+        <h3>Treats you like an adult</h3>
+        <p>No streaks, no badges, no guilt. Just something useful — when you need it, how you need it.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-line"></div>
+        <h3>Your data stays yours</h3>
+        <p>We keep data to a minimum. What you do inside the app is yours. Employers only ever see anonymised patterns — never individual behaviour.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-line"></div>
+        <h3>Results without the overhead</h3>
+        <p>Less presenteeism, more focus, better recovery — without a six-month rollout or a mandatory lunch-and-learn.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CTA -->
+  <section class="cta-footer" id="pilot">
+    <h2>Want to run a pilot?</h2>
+    <p>We're working with a small number of teams in Switzerland and the DACH region in 2026. If this sounds like something your organisation needs, we'd love to hear from you.</p>
+    <a href="mailto:info@emergize.ch" class="btn-primary" style="font-size:15px; padding:15px 36px; display:inline-block; text-decoration:none;">request pilot access</a>
+  </section>
+
+  <footer>
+    <p>© 2026 emergize AG · Basel, Switzerland</p>
+    <div class="footer-links">
+      <a href="#">privacy</a>
+      <a href="#">contact</a>
+      <a href="#">linkedin</a>
+    </div>
+  </footer>
+
+</body>
+</html>
