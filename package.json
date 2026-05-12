@@ -1,0 +1,25 @@
+{
+  "name": "emergize-web",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/chakrahq/emergize-web#readme",
+  "bugs": {
+    "url": "https://github.com/chakrahq/emergize-web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakrahq/emergize-web.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build:standalone": "node build.js",
+    "serve": "serve src/ -l 8080 --no-clipboard",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
