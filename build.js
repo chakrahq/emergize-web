@@ -9,6 +9,7 @@ const files = [
   'index.html',
   'privacy.html',
   'terms.html',
+  'contact.html',
 ];
 
 fs.mkdirSync(outDir, { recursive: true });
