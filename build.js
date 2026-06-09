@@ -7,6 +7,8 @@ const outDir = path.resolve(__dirname, 'dist');
 
 const files = [
   'index.html',
+  'privacy.html',
+  'terms.html',
 ];
 
 fs.mkdirSync(outDir, { recursive: true });

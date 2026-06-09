@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions — emergize</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6B5CE7;
+      --brand-light: #EAE8FD;
+      --brand-mid: #A89DF0;
+      --brand-dark: #3C3489;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --surface: #ffffff;
+      --subtle: #f7f6fc;
+      --border: rgba(0,0,0,0.1);
+      --border-mid: rgba(0,0,0,0.18);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--surface); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--ink); text-decoration: none; }
+    .nav-logo-mark { width: 30px; height: 30px; }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { font-size: 13px; font-weight: 500; background: var(--brand); color: #fff !important; border: none; border-radius: 6px; padding: 9px 20px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.86; }
+
+    .page-header { padding: 4.5rem 2rem 3rem; max-width: 760px; margin: 0 auto; border-bottom: 0.5px solid var(--border); }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.75rem; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin-bottom: 1rem; }
+    .page-header .meta { font-size: 13px; color: var(--muted); }
+
+    .content { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .toc { display: block; background: var(--subtle); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 3rem; }
+    .toc-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 1rem; }
+    .toc ol { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.4rem; }
+    .toc ol li a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; display: flex; gap: 8px; }
+    .toc ol li a:hover { color: var(--brand); }
+    .toc-num { font-weight: 500; color: var(--brand); min-width: 1.25rem; }
+
+    .clause { margin-bottom: 2.75rem; }
+    .clause-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+    .clause-num { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand); white-space: nowrap; }
+    .clause h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.2; }
+    .clause p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 0.85rem; }
+    .clause p:last-child { margin-bottom: 0; }
+    .clause ul, .clause ol { padding-left: 1.25rem; margin-bottom: 0.85rem; }
+    .clause ul li, .clause ol li { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 0.4rem; }
+    .clause ul li:last-child, .clause ol li:last-child { margin-bottom: 0; }
+
+    .notice { background: var(--brand-light); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 0.85rem; }
+    .notice p { color: var(--brand-dark) !important; font-size: 14px; line-height: 1.75; margin: 0 !important; }
+
+    footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; background: var(--subtle); }
+    footer p { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 620px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .page-header { padding: 3rem 1.25rem 2rem; }
+      .content { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <svg class="nav-logo-mark" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 352L96 288L160 224L224 288L160 352Z" fill="#6B5CE7"/>
+        <path d="M224 288L288 224L256 192C220 156 176 148 140 160L224 288Z" fill="#6B5CE7" opacity="0.45"/>
+        <path d="M290 170C345 140 415 155 450 210C485 265 475 340 420 375" stroke="#6B5CE7" stroke-width="44" stroke-linecap="round" fill="none"/>
+        <path d="M340 110L295 155L350 175L340 110Z" fill="#6B5CE7"/>
+      </svg>
+      emergize
+    </a>
+  </nav>
+
+  <header class="page-header">
+    <div class="section-label">legal</div>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="meta">Bridge · Last updated 09 June 2026</p>
+  </header>
+
+  <main class="content">
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#scope"><span class="toc-num">1.</span> Scope and acceptance</a></li>
+        <li><a href="#who"><span class="toc-num">2.</span> Who may use Bridge</a></li>
+        <li><a href="#nature"><span class="toc-num">3.</span> Nature of the service</a></li>
+        <li><a href="#use"><span class="toc-num">4.</span> Acceptable use</a></li>
+        <li><a href="#ip"><span class="toc-num">5.</span> Intellectual property</a></li>
+        <li><a href="#employer"><span class="toc-num">6.</span> Employer relationship</a></li>
+        <li><a href="#availability"><span class="toc-num">7.</span> Availability and changes</a></li>
+        <li><a href="#fees"><span class="toc-num">8.</span> Fees</a></li>
+        <li><a href="#warranties"><span class="toc-num">9.</span> Disclaimer of warranties</a></li>
+        <li><a href="#liability"><span class="toc-num">10.</span> Limitation of liability</a></li>
+        <li><a href="#termination"><span class="toc-num">11.</span> Termination</a></li>
+        <li><a href="#data"><span class="toc-num">12.</span> Data protection</a></li>
+        <li><a href="#governing"><span class="toc-num">13.</span> Governing law</a></li>
+        <li><a href="#changes"><span class="toc-num">14.</span> Changes to these Terms</a></li>
+      </ol>
+    </nav>
+
+    <section class="clause" id="scope">
+      <div class="clause-header">
+        <span class="clause-num">01</span>
+        <h2>Scope and acceptance</h2>
+      </div>
+      <p>These Terms and Conditions ("Terms") govern your use of the Bridge mobile application, website and related services (collectively, the "Service"). By creating an account or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
+      <p>In most cases, access to Bridge is provided through your employer or another organisation that has a contract with us. In that case, these Terms apply to you as an end user, in addition to our agreement with the organisation.</p>
+    </section>
+
+    <section class="clause" id="who">
+      <div class="clause-header">
+        <span class="clause-num">02</span>
+        <h2>Who may use Bridge</h2>
+      </div>
+      <p>You may use Bridge if:</p>
+      <ul>
+        <li>You are at least 16 years old (or of legal age in your jurisdiction), and</li>
+        <li>You have been invited by your employer or have otherwise received access from an authorised organisation, or you have created an individual account where this is enabled.</li>
+      </ul>
+      <p>You are responsible for keeping your login information and one-time codes confidential and for all activities that occur under your account.</p>
+    </section>
+
+    <section class="clause" id="nature">
+      <div class="clause-header">
+        <span class="clause-num">03</span>
+        <h2>Nature of the service (no medical advice)</h2>
+      </div>
+      <p>Bridge provides short audio sessions, video sessions and micro-interventions designed to support focus, recovery and mental fitness in everyday work.</p>
+      <p>Bridge:</p>
+      <ul>
+        <li>Does not provide medical, psychological or psychotherapeutic treatment</li>
+        <li>Does not offer diagnosis, crisis intervention or emergency services</li>
+        <li>Is not a replacement for professional medical or psychological care</li>
+      </ul>
+      <div class="notice">
+        <p>Always seek advice from a qualified professional regarding any questions about your health. If you are in crisis, contact local emergency services or a crisis hotline immediately.</p>
+      </div>
+    </section>
+
+    <section class="clause" id="use">
+      <div class="clause-header">
+        <span class="clause-num">04</span>
+        <h2>Acceptable use</h2>
+      </div>
+      <p>You agree to use Bridge only for lawful purposes and in a way that is compatible with its intended purpose. In particular, you must not:</p>
+      <ul>
+        <li>Attempt to reverse engineer, decompile, modify or create derivative works from the app or its content</li>
+        <li>Use the Service in a way that infringes the rights of others or violates applicable law</li>
+        <li>Share your access with unauthorised persons or attempt to access other users' data</li>
+        <li>Upload or transmit malware or other harmful code</li>
+      </ul>
+      <p>We may suspend or terminate your access if we reasonably believe that you are misusing the Service or violating these Terms.</p>
+    </section>
+
+    <section class="clause" id="ip">
+      <div class="clause-header">
+        <span class="clause-num">05</span>
+        <h2>Intellectual property</h2>
+      </div>
+      <p>All content and materials made available through Bridge — including text, audio, music, design, logos and software — are protected by intellectual property rights and remain the property of us or our licensors.</p>
+      <p>We grant you a limited, non-exclusive, non-transferable licence to use the Service and its content solely for your personal, non-commercial use, in accordance with these Terms and any applicable employer contract.</p>
+      <p>You may not copy, distribute, publicly perform, sell, rent, or otherwise exploit the content beyond what is permitted by law or these Terms.</p>
+    </section>
+
+    <section class="clause" id="employer">
+      <div class="clause-header">
+        <span class="clause-num">06</span>
+        <h2>Employer relationship and anonymity</h2>
+      </div>
+      <p>If your access to Bridge is provided by an employer or other organisation:</p>
+      <ul>
+        <li>Your employer pays for the licence and may receive aggregated, anonymised reports about overall usage, such as participation rates or commonly used moments.</li>
+        <li>Your employer does not receive information about which specific sessions you personally listened to, what you did inside sessions, or how you answered any self-reflections at an individual level.</li>
+      </ul>
+      <p>Nothing in these Terms creates an employment relationship between you and us. Your employment relationship remains solely with your employer.</p>
+    </section>
+
+    <section class="clause" id="availability">
+      <div class="clause-header">
+        <span class="clause-num">07</span>
+        <h2>Availability and changes to the service</h2>
+      </div>
+      <p>We aim to provide a stable, high-quality service but cannot guarantee uninterrupted availability. The Service may be temporarily unavailable due to maintenance, updates or technical issues.</p>
+      <p>We may modify, add or remove features or content over time (for example, to improve the user experience, address security issues or comply with law). Where possible and reasonable, we will inform you or your employer about significant changes.</p>
+    </section>
+
+    <section class="clause" id="fees">
+      <div class="clause-header">
+        <span class="clause-num">08</span>
+        <h2>Fees</h2>
+      </div>
+      <p>In most cases, your employer or organisation pays for your access to Bridge under a separate contract. For you as an end user, the Service is normally provided without direct charge.</p>
+      <p>If individual paid features are introduced in the future, we will clearly explain any prices and conditions and ask for your explicit consent before charging you.</p>
+    </section>
+
+    <section class="clause" id="warranties">
+      <div class="clause-header">
+        <span class="clause-num">09</span>
+        <h2>Disclaimer of warranties</h2>
+      </div>
+      <p>Bridge is provided "as is" and "as available", without any express or implied warranties, to the maximum extent permitted by law. We do not warrant that:</p>
+      <ul>
+        <li>The Service will always be available, error-free or completely secure</li>
+        <li>The Service will achieve specific results for your health, wellbeing or performance</li>
+        <li>Content is suitable for every person or situation</li>
+      </ul>
+      <p>Your use of the Service is at your own risk.</p>
+    </section>
+
+    <section class="clause" id="liability">
+      <div class="clause-header">
+        <span class="clause-num">10</span>
+        <h2>Limitation of liability</h2>
+      </div>
+      <p>To the maximum extent permitted by applicable law, we are not liable for:</p>
+      <ul>
+        <li>Any indirect, incidental, consequential or punitive damages (such as loss of profits or data) arising from your use of or inability to use the Service</li>
+        <li>Any decisions or actions you take based on the content of the Service</li>
+      </ul>
+      <p>Nothing in these Terms limits or excludes liability where this is not permitted by law, for example in cases of intent, gross negligence or injury to life, body or health under applicable law.</p>
+    </section>
+
+    <section class="clause" id="termination">
+      <div class="clause-header">
+        <span class="clause-num">11</span>
+        <h2>Termination</h2>
+      </div>
+      <p>You may stop using Bridge at any time. In many cases, you can request deletion of your account via the app or by contacting us.</p>
+      <p>We may suspend or terminate your access to the Service, or parts of it, with reasonable notice where:</p>
+      <ul>
+        <li>Your employer's contract with us ends, or</li>
+        <li>You materially violate these Terms, or</li>
+        <li>We discontinue the Service for technical, legal or business reasons</li>
+      </ul>
+      <p>Where legally required or reasonably possible, we will inform you or your employer before termination takes effect.</p>
+    </section>
+
+    <section class="clause" id="data">
+      <div class="clause-header">
+        <span class="clause-num">12</span>
+        <h2>Data protection</h2>
+      </div>
+      <p>Our handling of personal data is described in our <a href="/privacy" style="color: var(--brand); text-decoration: none; border-bottom: 0.5px solid var(--brand-mid);">Privacy Policy</a>, which forms part of these Terms. Please read it carefully.</p>
+    </section>
+
+    <section class="clause" id="governing">
+      <div class="clause-header">
+        <span class="clause-num">13</span>
+        <h2>Governing law and jurisdiction</h2>
+      </div>
+      <p>Unless otherwise required by mandatory local law, these Terms are governed by the laws of Switzerland, excluding conflict of law rules.</p>
+      <p>Subject to mandatory consumer protection rules, any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the competent courts at our registered seat.</p>
+    </section>
+
+    <section class="clause" id="changes">
+      <div class="clause-header">
+        <span class="clause-num">14</span>
+        <h2>Changes to these Terms</h2>
+      </div>
+      <p>We may amend these Terms from time to time, for example to reflect changes in the Service or legal requirements. If we make material changes, we will inform you in the app or via email.</p>
+      <p>Your continued use of the Service after such changes take effect constitutes acceptance of the updated Terms.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 emergize AG · Basel, Switzerland</p>
+    <div class="footer-links">
+      <a href="/privacy">privacy</a>
+      <a href="/terms" style="color: var(--ink);">terms</a>
+      <a href="mailto:info@emergize.ch">contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
